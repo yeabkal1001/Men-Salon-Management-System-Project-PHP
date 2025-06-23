@@ -1,4 +1,11 @@
 <?php
+/*
+ * Men's Salon Management System - Admin Dashboard
+ * Developed by: Yeabsira, Saliha & Mihret
+ * Lead Developer: Yeabsira
+ * Frontend Developer: Saliha
+ * Backend Developer: Mihret
+ */
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
