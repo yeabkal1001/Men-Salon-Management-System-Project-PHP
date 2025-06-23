@@ -1,0 +1,32 @@
+# Men's Salon Management System - Git Ignore
+# Developed by Yeabsira, Saliha & Mihret
+
+# Database configuration (sensitive information)
+# msms/includes/dbconnection.php
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*.backup
+
+# User uploaded files (if any)
+uploads/
+temp/
+
+# Cache files
+cache/
+tmp/
