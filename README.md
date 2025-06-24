@@ -217,9 +217,9 @@ chmod 644 -R /path/to/project/msms/
 
 For technical support or inquiries about this project:
 
-- **Yeabsira**: Lead Developer - [yeabsira@email.com]
-- **Saliha**: Frontend Developer - [saliha@email.com]
-- **Mihret**: Backend Developer - [mihret@email.com]
+- **Yeabsira**: Lead Developer - [yeabsira.kayel@bitscollege.edu.et]
+- **Saliha**: Frontend Developer - [saliha.abdo@bitscollege.edu.et]
+- **Mihret**: Backend Developer - [mihret.eshetu@bitscollege.edu.et]
 
 ## 🤝 Contributing
 
