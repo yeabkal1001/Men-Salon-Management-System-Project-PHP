@@ -254,6 +254,66 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
+## 🐳 Docker Setup (Recommended)
+
+This project includes `Dockerfile` and `docker-compose.yml` for easy setup using Docker.
+
+### Prerequisites
+- Docker installed on your system.
+- Docker Compose installed on your system (usually included with Docker Desktop).
+
+### Steps:
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/yeabkal1001/Men-Salon-Management-System-Project-PHP.git
+    cd Men-Salon-Management-System-Project-PHP
+    ```
+    *(If you've already cloned, navigate to the project root directory where `docker-compose.yml` is located.)*
+
+2.  **Build and Run Containers**:
+    Open a terminal in the project root directory and run:
+    ```bash
+    sudo docker compose up -d --build
+    ```
+    - This command will build the PHP application image and start the PHP application container and a MySQL database container.
+    - The `-d` flag runs the containers in detached mode (in the background).
+    - `--build` ensures the image is built if it doesn't exist or if the Dockerfile has changed.
+
+3.  **Accessing the Application**:
+    -   **Frontend**: Open your web browser and go to `http://localhost:8080/msms/`
+    -   **Admin Panel**: Open your web browser and go to `http://localhost:8080/msms/admin/`
+        -   **Default Admin Username**: `admin`
+        -   **Default Admin Password**: `Test@123` (as per existing documentation)
+
+    *Note: The application is mapped to port `8080` on your host machine. The `dbconnection.php` file is pre-configured in the Docker setup to connect to the MySQL container named `db` with user `msmsuser` and password `msmspassword` for the `msmsdb` database.*
+
+4.  **Database Initialization**:
+    The `msmsdb.sql` schema from the `sql_files` directory is automatically imported into the MySQL container when it first starts.
+
+5.  **Stopping the Application**:
+    To stop the containers, run the following command in the project root directory:
+    ```bash
+    sudo docker compose down
+    ```
+
+6.  **Viewing Logs**:
+    If you need to check the logs for the PHP application or MySQL database:
+    ```bash
+    sudo docker compose logs php
+    sudo docker compose logs db
+    ```
+    To follow logs in real-time:
+    ```bash
+    sudo docker compose logs -f php
+    ```
+
+### Notes for Docker Users:
+- The `install.php` script is **not** needed when using Docker, as the database connection (`msms/includes/dbconnection.php`) is pre-configured and the database schema is automatically imported.
+- The PHP application files (under `msms/`) are mounted as a volume into the `php` container. This means any changes you make to these files locally will be reflected immediately in the running container, which is useful for development.
+- The MySQL data is persisted in a Docker named volume called `db_data`.
+
+---
+
 **Developed with ❤️ by Yeabsira, Saliha & Mihret**
 
 *Making salon management simple and efficient!*
