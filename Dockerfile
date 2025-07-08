@@ -8,21 +8,11 @@ RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 WORKDIR /var/www/html
 
 # Copy application files
-# First, copy the main application directory
-COPY msms/ /var/www/html/msms/
-# Copy SQL file - though it will be used by mysql container, good to have it in context if needed
-COPY SQL\ File/ /var/www/html/SQL\ File/
+COPY msms/* /var/www/html/
 # Copy install.php (though we aim to bypass its direct use)
 COPY install.php /var/www/html/install.php
-
-# Copy other root files if necessary (e.g., .htaccess if any, or other specific configurations)
-# For now, we assume the core app is in 'msms' and 'install.php' is at the root.
-# If there are other specific root files like a global index.php or .htaccess, they should be copied too.
-# Example: COPY .htaccess /var/www/html/
-
-# Ensure correct permissions for Apache if needed
-# RUN chown -R www-data:www-data /var/www/html
-# RUN chmod -R 755 /var/www/html
+# Set permissions for Apache
+RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 
 # Expose port 80
 EXPOSE 80

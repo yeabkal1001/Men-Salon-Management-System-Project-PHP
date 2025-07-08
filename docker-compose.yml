@@ -5,16 +5,10 @@ services:
     build: .
     container_name: msms_php
     ports:
-      - "8080:80" # Map host port 8080 to container port 80
+      - "8081:80" # Map host port 8081 to container port 80
     volumes:
-      # Mount the whole project directory to allow live code changes during development
-      # Note: Adjust if your local structure is different or for production.
-      - ./msms:/var/www/html/msms
-      - ./SQL\ File:/var/www/html/SQL\ File
+      - ./msms:/var/www/html
       - ./install.php:/var/www/html/install.php
-      # If other root files/dirs exist and need to be mapped:
-      # - ./some_other_file.php:/var/www/html/some_other_file.php
-      # - ./some_other_dir:/var/www/html/some_other_dir
     depends_on:
       - db
     networks:
